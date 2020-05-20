@@ -12,9 +12,9 @@ button[type="submit"]{
     color: #fff;
 
 }
-.jumbotron{
+.header-title{
     background-color: #fff;
-    padding-top: 32px;
+    padding-top: 25px;
 }
 
 table tr:hover{
@@ -24,6 +24,7 @@ table tr:hover{
 input.ng-touched.ng-invalid{
     border-color: #dc3545;
 }
+
 div.validation-error{
     width: 100%;
     margin-top: .25rem;

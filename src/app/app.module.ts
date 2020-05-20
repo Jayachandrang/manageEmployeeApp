@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
+import { EmployeeNameFilter } from 'src/Pipes/custom.pipe';
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employees/employee/employee.component';
@@ -16,6 +16,7 @@ import { EmployeeService } from './shared/employee.service';
     AppComponent,
     EmployeesComponent,
     EmployeeComponent,
+    EmployeeNameFilter,
     EmployeeListComponent
   ],
   imports: [

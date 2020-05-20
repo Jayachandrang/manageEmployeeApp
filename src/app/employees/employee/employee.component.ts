@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/shared/employee.service';
+import { MessageService } from 'src/app/shared/message.service';
 import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-employee',
@@ -13,8 +15,9 @@ export class EmployeeComponent implements OnInit {
     salary: '',
     age: '',
   };
-  refreshEmployee;
-  constructor(private service: EmployeeService, private toastr: ToastrService) {}
+  createEmployeeSubscription: any;
+  constructor(private service: EmployeeService, private messageService: MessageService,
+              private toastr: ToastrService) {}
 
   ngOnInit() {
   }
@@ -26,12 +29,17 @@ export class EmployeeComponent implements OnInit {
       salary: this.createEmp.salary
     };
     if (this.createEmp.name && this.createEmp.age && this.createEmp.salary) {
-      this.service.addEmployee(createEmpObj).subscribe(results => {
+      this.createEmployeeSubscription = this.service.addEmployee(createEmpObj).subscribe(results => {
         this.toastr.success('', 'Employee created successfully');
-        this.refreshEmployee = results;
+        this.messageService.sendMessage('Employee created!');
       });
     } else {
       this.toastr.warning('', 'Please enter the mandatory fields');
     }
+  }
+
+  ngOnDestroy() {
+    // we have to do unsubscribe to avoid memory leaks
+    this.createEmployeeSubscription.unsubscribe();
   }
 }
