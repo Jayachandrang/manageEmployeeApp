@@ -25,4 +25,9 @@ describe('EmployeeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create employee', () => {
+    component.createEmployee();
+    expect(component.createEmployee).toBeTruthy();
+  });
 });
