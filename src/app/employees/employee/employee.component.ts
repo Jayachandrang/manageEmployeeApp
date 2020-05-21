@@ -31,7 +31,7 @@ export class EmployeeComponent implements OnInit {
     if (this.createEmp.name && this.createEmp.age && this.createEmp.salary) {
       this.createEmployeeSubscription = this.service.addEmployee(createEmpObj).subscribe(results => {
         this.toastr.success('', 'Employee created successfully');
-        this.messageService.sendMessage('Employee created!');
+        // this.messageService.sendMessage('Employee created!');
       });
     } else {
       this.toastr.warning('', 'Please enter the mandatory fields');
