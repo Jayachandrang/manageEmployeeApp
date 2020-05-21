@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/shared/employee.service';
-import { MessageService } from 'src/app/shared/message.service';
 import { ToastrService } from 'ngx-toastr';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-employee',
@@ -16,12 +14,12 @@ export class EmployeeComponent implements OnInit {
     age: '',
   };
   createEmployeeSubscription: any;
-  constructor(private service: EmployeeService, private messageService: MessageService,
-              private toastr: ToastrService) {}
+  appendEmpList: {};
+  constructor(private service: EmployeeService, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
-
+  // To create new employee.
   createEmployee() {
     const createEmpObj = {
       name: this.createEmp.name,
@@ -29,12 +27,24 @@ export class EmployeeComponent implements OnInit {
       salary: this.createEmp.salary
     };
     if (this.createEmp.name && this.createEmp.age && this.createEmp.salary) {
-      this.createEmployeeSubscription = this.service.addEmployee(createEmpObj).subscribe(results => {
-        this.toastr.success('', 'Employee created successfully');
-        // this.messageService.sendMessage('Employee created!');
+      this.service.addEmployee(createEmpObj).subscribe(results => {
+        if (results && results['data']) {
+          this.appendEmpList = {};
+          for (const changeObj in results['data']) {
+            if (changeObj === 'id') {
+              this.appendEmpList['id'] = results['data'].id;
+            } else {
+              this.appendEmpList[`employee_${changeObj}`] = results['data'][changeObj];
+            }
+          }
+          this.service.sendMessage({ employee: this.appendEmpList });
+          this.toastr.success('', 'Employee created successfully');
+        }
+      }, (error) => {
+        this.toastr.error('', error);
       });
     } else {
-      this.toastr.warning('', 'Please enter the mandatory fields');
+      this.toastr.warning('Please enter the mandatory fields');
     }
   }
 
