@@ -1,3 +1,14 @@
 .mB10 {
     margin-bottom: 10px;
 }
+
+.search-input {
+    background: url(../../../assets/images/search.png) left no-repeat;
+    padding-left: 30px;
+}
+
+.sub-header-title {
+    font-size: 20px;
+    color: #000099;
+    padding-top: 10px;
+}

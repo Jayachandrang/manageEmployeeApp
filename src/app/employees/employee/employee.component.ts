@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from 'src/app/shared/employee.service';
+import { EmployeeService } from 'src/app/common/services/employee.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

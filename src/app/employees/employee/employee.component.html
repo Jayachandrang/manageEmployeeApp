@@ -1,17 +1,20 @@
-<div class="form-group">
+<h3 class="text-center sub-header-title">Add Employee</h3>
+<hr>
+<div class="form-group col-md-8">
   <label>NAME</label>
-  <input type="text" name="empName" [(ngModel)]="createEmp.name" class="form-control" required>
+  <input type="text" name="empName" placeholder="Enter Employee Name" [(ngModel)]="createEmp.name" class="form-control"
+    required>
 </div>
-<div class="form-group">
+<div class="form-group col-md-8">
   <label>SALARY</label>
-  <input type="number" name="empSalary" [(ngModel)]="createEmp.salary" class="form-control" required>
+  <input type="number" name="empSalary" placeholder="Enter Employee Salary" [(ngModel)]="createEmp.salary"
+    class="form-control" required>
 </div>
-<div class="form-row">
-  <div class="form-group col-md-6">
-    <label>AGE</label>
-    <input type="number" name="empAge" [(ngModel)]="createEmp.age" class="form-control" required>
-  </div>
+<div class="form-group col-md-8">
+  <label>AGE</label>
+  <input type="number" name="empAge" placeholder="Enter Employee Age" [(ngModel)]="createEmp.age" class="form-control"
+    required>
 </div>
-<div class="form-group">
+<div class="form-group col-md-8">
   <button type="submit" class="btn btn-lg btn-block" (click)="createEmployee()">SUBMIT</button>
 </div>

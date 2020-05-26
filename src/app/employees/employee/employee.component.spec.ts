@@ -3,7 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { EmployeeComponent } from './employee.component';
-import { EmployeeService } from 'src/app/shared/employee.service';
+import { EmployeeService } from 'src/app/common/services/employee.service';
 import { of } from 'rxjs';
 import { DebugElement } from '@angular/core';
 

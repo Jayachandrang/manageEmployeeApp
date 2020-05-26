@@ -23,10 +23,6 @@ export class EmployeeService {
     this.subject.next(message);
   }
 
-  clearMessages() {
-    this.subject.next();
-  }
-
   getMessage(): Observable<any> {
     return this.subject.asObservable();
   }

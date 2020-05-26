@@ -1,22 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../node_modules/ngx-toastr/toastr.css';
 .form-group>input{
-    font-weight: bolder;
+    font-weight: 400;
 }
 .form-group>label{
     font-weight: lighter;
 }
 
+body {
+    font-family: "Myriad Regular","Tahoma","Lucida Sans Unicode","Lucida Grande",sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    color: #392533;
+}
+
 button[type="submit"]{
-    background-color: #67dfd4;
+    background: #FF6600;
     color: #fff;
-
+    padding: 0 0px;
+    border-radius: 4px /15px;
 }
-.header-title{
-    background-color: #fff;
-    padding-top: 25px;
-}
-
 table tr:hover{
     cursor: pointer;
 }
