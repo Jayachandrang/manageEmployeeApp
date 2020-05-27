@@ -16,10 +16,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Sample Screens
 
-![alt text](Desktop_view.png)
+![alt text](Desktop_view_AddEmployee.png)
 
-![alt text](Mobile_view.png)
+![alt text](Desktop_View_EmployeeList.png)
 
-![alt text](Add_employee.png)
+![alt text](Mobile_view_AddEmployee.png)
 
-![alt text](Employee_list.png)
+![alt text](Mobile_View_EmployeeList.png)
