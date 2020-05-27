@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/common/services/employee.service';
 import { ToastrService } from 'ngx-toastr';
-import { Employee } from 'src/app/common/services/employee.model';
+import { Employee } from 'src/app/common/model/employee.model';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',

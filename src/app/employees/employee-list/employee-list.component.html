@@ -5,17 +5,15 @@
 </div>
 <table class="table table-hover">
   <tr>
-    <th class="col-lg-1 col-md-1">#</th>
-    <th class="col-lg-1 col-md-2">Name</th>
-    <th class="col-lg-2 col-md-2">Salary</th>
-    <th class="col-lg-1 col-md-1">Age</th>
-    <th class="col-lg-1 col-md-1"></th>
+    <th scope="col">No</th>
+    <th scope="col">Name</th>
+    <th scope="col">Salary</th>
+    <th scope="col">Age</th>
   </tr>
-  <tr *ngFor="let emp of list | EmployeeNameFilter :employee_name">
-    <td>{{emp.id}}</td>
-    <td>{{emp.employee_name}}</td>
-    <td>{{emp.employee_salary}}</td>
-    <td>{{emp.employee_age}}</td>
-    <td><button class="btn btn-sm btn-outline-danger">X</button></td>
+  <tr class="col-lg-1 col-md-7" *ngFor="let emp of list | EmployeeNameFilter :employee_name">
+    <td scope="row">{{emp.id}}</td>
+    <td scope="row">{{emp.employee_name}}</td>
+    <td scope="row">{{emp.employee_salary}}</td>
+    <td scope="row">{{emp.employee_age}}</td>
   </tr>
 </table>

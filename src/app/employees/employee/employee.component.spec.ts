@@ -6,7 +6,7 @@ import { EmployeeComponent } from './employee.component';
 import { EmployeeService } from 'src/app/common/services/employee.service';
 import { of } from 'rxjs';
 import { DebugElement } from '@angular/core';
-import { Employee } from 'src/app/common/services/employee.model';
+import { Employee } from 'src/app/common/model/employee.model';
 
 describe('EmployeeComponent', () => {
   let component: EmployeeComponent;

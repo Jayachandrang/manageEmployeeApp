@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { EmployeeListComponent } from './employee-list.component';
-import { Employee } from 'src/app/common/services/employee.model';
+import { Employee } from 'src/app/common/model/employee.model';
 import { EmployeeService } from 'src/app/common/services/employee.service';
 import { EmployeeNameFilter } from 'src/Pipes/custom.pipe';
 import { DebugElement } from '@angular/core';
