@@ -13,7 +13,7 @@ export class EmployeeComponent implements OnInit {
     salary: '',
     age: '',
   };
-  createEmployeeSubscription: any;
+  createEmployeeSubscription;
   appendEmpList: {};
   constructor(private service: EmployeeService, private toastr: ToastrService) { }
 

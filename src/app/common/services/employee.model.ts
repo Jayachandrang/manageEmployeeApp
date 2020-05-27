@@ -1,6 +1,5 @@
 export class Employee {
-    empId: number;
-    empName: string;
-    empSalary: string;
-    empAge: string;
+    name: string;
+    salary: string;
+    age: string;
 }
