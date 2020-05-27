@@ -9,18 +9,17 @@ import { Subscription } from 'rxjs';
 })
 export class EmployeeListComponent implements OnInit {
   list: Employee[];
-  messages: any[] = [];
   subscription: Subscription;
   constructor(private service: EmployeeService) {
     this.subscription = this.service.getMessage().subscribe(message => {
-        this.list.push(message.employee);
-      });
+      this.list.push(message['employee']);
+    });
   }
 
   ngOnInit() {
     // To load all the employee list.
     this.service.getEmployeesList().subscribe(results => {
-      this.list = results.data;
+      this.list = results['data'];
     });
   }
 

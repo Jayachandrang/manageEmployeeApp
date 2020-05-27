@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/common/services/employee.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { Employee } from 'src/app/common/services/employee.model';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  createEmp = {
-    name: '',
-    salary: '',
-    age: '',
-  };
+  model = new Employee();
   createEmployeeSubscription;
   appendEmpList: {};
   constructor(private service: EmployeeService, private toastr: ToastrService) { }
@@ -21,13 +17,8 @@ export class EmployeeComponent implements OnInit {
   }
   // To create new employee.
   createEmployee() {
-    const createEmpObj = {
-      name: this.createEmp.name,
-      age: this.createEmp.age,
-      salary: this.createEmp.salary
-    };
-    if (this.createEmp.name && this.createEmp.age && this.createEmp.salary) {
-      this.service.addEmployee(createEmpObj).subscribe(results => {
+    if (this.model) {
+      this.createEmployeeSubscription = this.service.addEmployee(this.model).subscribe(results => {
         if (results && results['data']) {
           this.appendEmpList = {};
           for (const changeObj in results['data']) {
@@ -39,12 +30,11 @@ export class EmployeeComponent implements OnInit {
           }
           this.service.sendMessage({ employee: this.appendEmpList });
           this.toastr.success('', 'Employee created successfully');
+          this.model = new Employee(); // Clears the value after employee created successfully.
         }
       }, (error) => {
         this.toastr.error('', error);
       });
-    } else {
-      this.toastr.warning('Please enter the mandatory fields');
     }
   }
 

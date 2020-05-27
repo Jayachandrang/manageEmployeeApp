@@ -6,6 +6,7 @@ import { EmployeeComponent } from './employee.component';
 import { EmployeeService } from 'src/app/common/services/employee.service';
 import { of } from 'rxjs';
 import { DebugElement } from '@angular/core';
+import { Employee } from 'src/app/common/services/employee.model';
 
 describe('EmployeeComponent', () => {
   let component: EmployeeComponent;
@@ -24,12 +25,11 @@ describe('EmployeeComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(EmployeeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
     debugElement = fixture.debugElement;
     empService = debugElement.injector.get(EmployeeService);
     empSpy =
-      spyOn(empService, 'addEmployee').and.returnValue(of({ json: () => [] }));
+      spyOn(empService, 'addEmployee').and.returnValue(of({"data":{"name": "AJad", "salary": 22, "age": 11, "id": 44}}));
+    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
@@ -43,8 +43,5 @@ describe('EmployeeComponent', () => {
     component.createEmployee();
     empService = debugElement.injector.get(EmployeeService);
     fixtures.componentInstance.createEmployee();
-    const employeeSpy =
-      spyOn(empService, 'getEmployeesList').and.returnValue(of({ json: () => [] }));
-    expect(employeeSpy).toBeDefined();
   });
 });
